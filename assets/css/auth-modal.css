@@ -1,0 +1,304 @@
+/* LAUNDRAFLOW AUTHENTICATION POPUP */
+
+.lf-auth-overlay,
+.lf-auth-overlay * {
+    box-sizing: border-box;
+}
+
+.lf-auth-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    background: rgba(15, 30, 45, 0.30);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+}
+
+.lf-auth-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.lf-auth-lock {
+    overflow: hidden;
+}
+
+/* POPUP CONTAINER */
+
+.lf-auth-card {
+    position: relative;
+    width: 470px;
+    max-width: 100%;
+    max-height: calc(100vh - 40px);
+
+    padding: 45px 46px 35px;
+
+    background: rgba(225, 220, 210, 0.76);
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    border-radius: 22px;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+
+    overflow-y: auto;
+    transform: scale(0.90);
+    transition: transform 0.3s ease;
+}
+
+.lf-auth-overlay.is-open .lf-auth-card {
+    transform: scale(1);
+}
+
+/* CLOSE BUTTON */
+
+.lf-auth-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 52px;
+    height: 52px;
+
+    background: #162938;
+    color: #fff;
+
+    border: none;
+    border-bottom-left-radius: 20px;
+
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* FORM VISIBILITY */
+
+.lf-auth-view {
+    display: none;
+    animation: lfAuthFade 0.25s ease;
+}
+
+.lf-auth-card:not(.is-register) .lf-auth-login-view {
+    display: block;
+}
+
+.lf-auth-card.is-register .lf-auth-register-view {
+    display: block;
+}
+
+@keyframes lfAuthFade {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* FORM TITLE */
+
+.lf-auth-view h2 {
+    color: #162938;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* INPUT FIELDS */
+
+.lf-auth-field {
+    position: relative;
+    width: 100%;
+    height: 55px;
+
+    border-bottom: 2px solid #162938;
+    margin: 25px 0;
+}
+
+.lf-auth-field input {
+    width: 100%;
+    height: 100%;
+
+    padding: 12px 42px 5px 5px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: #162938;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.lf-auth-field label {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #162938;
+    font-size: 16px;
+    font-weight: 500;
+
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.lf-auth-field input:focus ~ label,
+.lf-auth-field input:not(:placeholder-shown) ~ label {
+    top: -3px;
+    font-size: 13px;
+}
+
+.lf-auth-icon {
+    position: absolute;
+    right: 8px;
+    top: 19px;
+
+    color: #162938;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.lf-auth-password-toggle {
+    position: absolute;
+    right: 5px;
+    top: 15px;
+
+    color: #162938;
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* REMEMBER ME AND FORGOT PASSWORD */
+
+.lf-auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: -8px 0 18px;
+
+    color: #162938;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.lf-auth-options label,
+.lf-auth-terms label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lf-auth-options input,
+.lf-auth-terms input {
+    accent-color: #162938;
+}
+
+.lf-auth-overlay a {
+    color: #162938;
+    text-decoration: none;
+}
+
+.lf-auth-overlay a:hover {
+    text-decoration: underline;
+}
+
+/* REGISTRATION TERMS */
+
+.lf-auth-terms {
+    color: #162938;
+    font-size: 14px;
+    margin: 15px 0 20px;
+}
+
+/* SUBMIT BUTTON */
+
+.lf-auth-submit {
+    width: 100%;
+    height: 50px;
+
+    color: #fff;
+    background: #162938;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lf-auth-submit:hover {
+    background: #294a63;
+}
+
+/* LOGIN / REGISTRATION SWITCH */
+
+.lf-auth-switch {
+    color: #162938;
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    margin: 25px 0 5px;
+}
+
+.lf-auth-switch p {
+    margin: 0;
+}
+
+.lf-auth-switch a {
+    font-weight: 700;
+}
+
+/* FORM STATUS */
+
+.lf-auth-status {
+    color: #162938;
+    font-size: 13px;
+    text-align: center;
+    margin: 10px 0 0;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 480px) {
+    .lf-auth-card {
+        padding: 42px 24px 28px;
+    }
+
+    .lf-auth-view h2 {
+        font-size: 30px;
+    }
+
+    .lf-auth-options {
+        font-size: 13px;
+    }
+}
