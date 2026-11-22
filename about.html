@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Laundryl | Teamplate</title>
+    <title>LaundraFlow | About</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/washicon.png">
 
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth-modal.css">
+    <link rel="stylesheet" href="assets/css/style2.css">
 </head>
 <body>
     <!-- ? Preloader Start -->
@@ -55,13 +57,6 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li class="active"><a href="about.html">About</a></li>
                                     <li><a href="services.html">Services</a></li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
-                                            <li><a href="elements.html">Element</a></li>
-                                        </ul>
-                                    </li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>
@@ -69,8 +64,7 @@
                     </div>
                 </div> 
                 <div class="header-right d-none d-lg-block">
-                    <a href="#" class="header-btn1"><img src="assets/img/icon/call.png" alt=""> (08) 728 256 266</a>
-                    <a href="#" class="header-btn2">Make an Appointment</a>
+                    <a href="#" class="header-btn2 lf-auth-login-trigger">Login</a>
                 </div>
                 <!-- Mobile Menu -->
                 <div class="col-12">
@@ -89,6 +83,7 @@
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2">
                                 <h2>About us</h2>
+                                <p class="about-subtitle">LaundraFlow is a laundry service platform designed to make clothing care more convenient, organized, and accessible.<br> We aim to provide customers with a simple and efficient way to manage their laundry needs<br> while ensuring that their garments receive proper care and attention.</p>
                             </div>
                         </div>
                     </div>
@@ -387,6 +382,140 @@
 <div id="back-top" >
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
+<!-- LaundraFlow Login and Registration Popup -->
+<div class="lf-auth-overlay" id="lfAuthOverlay" aria-hidden="true">
+
+    <div class="lf-auth-card" id="lfAuthCard"
+         role="dialog" aria-modal="true"
+         aria-labelledby="lfLoginTitle">
+
+        <!-- Close Button -->
+        <button type="button" class="lf-auth-close"
+                id="lfAuthClose" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- LOGIN FORM -->
+        <div class="lf-auth-view lf-auth-login-view">
+
+            <h2 id="lfLoginTitle">Login</h2>
+
+            <form class="lf-auth-form">
+
+                <div class="lf-auth-field">
+                    <input type="email" name="email"
+                           placeholder=" " required
+                           autocomplete="email">
+                    <label>Email</label>
+                    <i class="fas fa-envelope lf-auth-icon"></i>
+                </div>
+
+                <div class="lf-auth-field">
+                    <input type="password" id="lfLoginPassword"
+                           name="password" placeholder=" "
+                           required autocomplete="current-password">
+                    <label>Password</label>
+
+                    <button type="button"
+                            class="lf-auth-password-toggle"
+                            data-target="lfLoginPassword"
+                            aria-label="Show password">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+
+                <div class="lf-auth-options">
+                    <label>
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
+
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="lf-auth-submit">
+                    Login
+                </button>
+
+                <p class="lf-auth-status" aria-live="polite"></p>
+
+                <div class="lf-auth-switch">
+                    <p>
+                        Don't have an account?
+                        <a href="#" class="lf-auth-register-link">
+                            Register
+                        </a>
+                    </p>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- REGISTRATION FORM -->
+        <div class="lf-auth-view lf-auth-register-view">
+
+            <h2>Registration</h2>
+
+            <form class="lf-auth-form">
+
+                <div class="lf-auth-field">
+                    <input type="text" name="username"
+                           placeholder=" " required
+                           autocomplete="username">
+                    <label>Username</label>
+                    <i class="fas fa-user lf-auth-icon"></i>
+                </div>
+
+                <div class="lf-auth-field">
+                    <input type="email" name="email"
+                           placeholder=" " required
+                           autocomplete="email">
+                    <label>Email</label>
+                    <i class="fas fa-envelope lf-auth-icon"></i>
+                </div>
+
+                <div class="lf-auth-field">
+                    <input type="password" id="lfRegisterPassword"
+                           name="password" placeholder=" "
+                           required autocomplete="new-password">
+                    <label>Password</label>
+
+                    <button type="button"
+                            class="lf-auth-password-toggle"
+                            data-target="lfRegisterPassword"
+                            aria-label="Show password">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+
+                <div class="lf-auth-terms">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the terms & conditions
+                    </label>
+                </div>
+
+                <button type="submit" class="lf-auth-submit">
+                    Register
+                </button>
+
+                <p class="lf-auth-status" aria-live="polite"></p>
+
+                <div class="lf-auth-switch">
+                    <p>
+                        Already have an account?
+                        <a href="#" class="lf-auth-login-link">
+                            Login
+                        </a>
+                    </p>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- End LaundraFlow Authentication Popup -->
 
 <!-- JS here -->
 
@@ -430,6 +559,7 @@
 <!-- Jquery Plugins, main Jquery -->	
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
+<script src="./assets/js/auth-modal.js"></script>
 
 </body>
 </html>
