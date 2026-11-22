@@ -38,14 +38,28 @@ function closeAuthPopup() {
 
     authCard.classList.remove("is-register");
 
-    loginTrigger.focus();
+    if (lastAuthTrigger && lastAuthTrigger.isConnected) {
+        lastAuthTrigger.focus();
+    }
 }
 
 
-// LOGIN BUTTON
+// LOGIN BUTTON - DESKTOP AND MOBILE
 
-loginTrigger.addEventListener("click", function(event) {
+let lastAuthTrigger = null;
+
+document.addEventListener("click", function(event) {
+
+    const trigger = event.target.closest(
+        ".lf-auth-login-trigger"
+    );
+
+    if (!trigger) return;
+
     event.preventDefault();
+
+    lastAuthTrigger = trigger;
+
     openAuthPopup();
 });
 

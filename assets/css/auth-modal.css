@@ -302,3 +302,11 @@ body.lf-auth-lock {
         font-size: 13px;
     }
 }
+
+/* MOBILE NAVIGATION LOGIN BUTTON */
+
+@media (min-width: 992px) {
+    .lf-mobile-login-item {
+        display: none !important;
+    }
+}
