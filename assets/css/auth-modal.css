@@ -90,7 +90,8 @@ body.lf-auth-lock {
     animation: lfAuthFade 0.25s ease;
 }
 
-.lf-auth-card:not(.is-register) .lf-auth-login-view {
+.lf-auth-card:not(.is-register):not(.is-forgot)
+.lf-auth-login-view {
     display: block;
 }
 
@@ -308,5 +309,33 @@ body.lf-auth-lock {
 @media (min-width: 992px) {
     .lf-mobile-login-item {
         display: none !important;
+    }
+}
+
+/* FORGOT PASSWORD VIEW */
+
+.lf-auth-card.is-forgot .lf-auth-forgot-view {
+    display: block;
+}
+
+.lf-auth-description {
+    color: #162938;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.6;
+    margin: 15px 0 25px;
+}
+
+/* FORGOT PASSWORD BUTTON */
+
+.lf-auth-forgot-view .lf-auth-submit {
+    margin-top: 15px;
+}
+
+/* FORGOT PASSWORD RESPONSIVENESS */
+
+@media (max-width: 480px) {
+    .lf-auth-description {
+        font-size: 14px;
     }
 }

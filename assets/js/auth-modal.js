@@ -17,6 +17,14 @@ const loginLink = document.querySelector(
     ".lf-auth-login-link"
 );
 
+const forgotLink = document.querySelector(
+    ".lf-auth-forgot-link"
+);
+
+const backToLoginLink = document.querySelector(
+    ".lf-auth-back-login-link"
+);
+
 
 // OPEN LOGIN POPUP
 
@@ -36,7 +44,7 @@ function closeAuthPopup() {
 
     document.body.classList.remove("lf-auth-lock");
 
-    authCard.classList.remove("is-register");
+    authCard.classList.remove("is-register", "is-forgot");
 
     if (lastAuthTrigger && lastAuthTrigger.isConnected) {
         lastAuthTrigger.focus();
@@ -93,6 +101,43 @@ loginLink.addEventListener("click", function(event) {
     event.preventDefault();
 
     authCard.classList.remove("is-register");
+});
+
+// OPEN FORGOT PASSWORD FORM
+
+forgotLink.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    authCard.classList.remove("is-register");
+    authCard.classList.add("is-forgot");
+});
+
+
+// RETURN FROM FORGOT PASSWORD TO LOGIN
+
+backToLoginLink.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    authCard.classList.remove("is-forgot");
+    authCard.classList.remove("is-register");
+});
+
+
+// FORGOT PASSWORD FORM HANDLING
+
+const forgotForm = document.querySelector(
+    ".lf-auth-forgot-form"
+);
+
+forgotForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const status = forgotForm.querySelector(
+        ".lf-auth-status"
+    );
+
+    status.textContent =
+        "Password reset is not connected yet. Backend integration is required.";
 });
 
 

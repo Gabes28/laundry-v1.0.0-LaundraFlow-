@@ -410,7 +410,7 @@
                         Remember me
                     </label>
 
-                    <a href="#">Forgot Password?</a>
+                    <a href="#" class="lf-auth-forgot-link">Forgot Password?</a>
                 </div>
 
                 <button type="submit" class="lf-auth-submit">
@@ -492,7 +492,48 @@
 
             </form>
         </div>
+<!-- FORGOT PASSWORD FORM -->
+<div class="lf-auth-view lf-auth-forgot-view">
 
+    <h2>Forgot Password?</h2>
+
+    <p class="lf-auth-description">
+        Enter your registered email address to request
+        a password reset.
+    </p>
+
+    <form class="lf-auth-forgot-form">
+
+        <div class="lf-auth-field">
+            <input type="email"
+                   name="email"
+                   placeholder=" "
+                   required
+                   autocomplete="email">
+
+            <label>Email Address</label>
+
+            <i class="fas fa-envelope lf-auth-icon"></i>
+        </div>
+
+        <button type="submit" class="lf-auth-submit">
+            Send Reset Link
+        </button>
+
+        <p class="lf-auth-status" aria-live="polite"></p>
+
+        <div class="lf-auth-switch">
+            <p>
+                Remember your password?
+                <a href="#" class="lf-auth-back-login-link">
+                    Login
+                </a>
+            </p>
+        </div>
+
+    </form>
+</div>
+<!-- END FORGOT PASSWORD FORM -->
     </div>
 </div>
 <!-- End LaundraFlow Authentication Popup -->
